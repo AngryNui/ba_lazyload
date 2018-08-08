@@ -1,0 +1,97 @@
+@charset "UTF-8";
+body {
+  /* notwendig für lazyload */
+  background-color: white;
+  font-family: 'Open Sans', sans-serif; }
+  body img {
+    filter: blur(10px);
+    transition: filter 1s; }
+    body img.loaded {
+      filter: blur(0px); }
+  body .background {
+    z-index: -1;
+    background-color: #fafafa;
+    height: 100vh;
+    width: 800px;
+    top: 0px;
+    left: calc((100vw - 800px)/2);
+    position: absolute; }
+  body .container {
+    width: 800px;
+    margin: auto; }
+  body hr {
+    border-top: 1px solid #bbb;
+    margin: 10px; }
+  body h1 {
+    font-weight: lighter;
+    color: #bbb;
+    text-align: center; }
+  body h4 {
+    padding-top: 0px; }
+  body .content {
+    padding: 20px; }
+    body .content section {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      margin-bottom: 50px;
+      justify-content: space-between;
+      align-items: stretch;
+      height: 500px; }
+      body .content section h4 {
+        padding-top: 0; }
+      body .content section > * {
+        flex-basis: 100%; }
+        body .content section > *:nth-child(2) {
+          margin-left: 20px; }
+      body .content section::after {
+        content: '';
+        position: absolute;
+        top: calc(100% + 20px);
+        width: 300px;
+        border-bottom: 1px solid #bbb;
+        transform: translateX(-50%);
+        left: 50%; }
+      body .content section .bild {
+        position: relative;
+        height: 100%; }
+        body .content section .bild img {
+          max-width: 350px; }
+  body .slider {
+    width: 100%; }
+    body .slider .sliderContent {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; }
+      body .slider .sliderContent #sliderSlides {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        width: 500%;
+        transition: left 0.3s; }
+        body .slider .sliderContent #sliderSlides .slide {
+          width: 100%;
+          height: 100%;
+          position: relative; }
+          body .slider .sliderContent #sliderSlides .slide img {
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+            height: 100%; }
+    body .slider #sliderPrevious,
+    body .slider #sliderNext {
+      text-align: center;
+      position: absolute;
+      z-index: 2;
+      width: 10%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 0;
+      border: none; }
+      body .slider #sliderPrevious:hover,
+      body .slider #sliderNext:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.2); }
+    body .slider #sliderNext {
+      right: 0px; }

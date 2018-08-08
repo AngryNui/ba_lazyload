@@ -1,0 +1,69 @@
+doctype html
+
+head
+    meta(charset="utf-8")
+    link(rel="stylesheet" type="text/css" href="./style.css")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet")
+body
+    //- .background
+    .container
+        .header
+            h1 Nui's lazyloaded Blog
+            hr
+
+
+        .content
+            section
+                .text
+                    h4 Erster Post
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                .bild
+                    img(src='./img/blumentopf_pre.jpg' data-img='./img/blumentopf.jpg')
+            section
+                .bild
+                    img(src='./img/tower_pre.jpg' data-img='./img/tower.jpeg')
+                .text
+                    h4 Zweiter Post
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            section
+                .text
+                    h4 Dritter Post
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                .bild
+                    img(src='./img/mond_pre.jpg' data-img='./img/mond.jpg')
+            section
+                .bild
+                    img(src='./img/palme_pre.jpg' data-img='./img/palme.jpg')
+                .text
+                    h4 Vierter Post
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            section
+                .text
+                    h4 Fünfter Post
+                    p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                .bild
+                    picture
+                        source(media="(max-width: 950px)" srcset="./img/see_sw.jpg")
+                        img(src='./img/see_pre.jpg' data-img='./img/see.jpg')
+            section
+                .slider
+                    .sliderContent
+                        #sliderSlides
+                            .slide
+                                img(src='./img/blumentopf_pre.jpg' data-img='./img/blumentopf.jpg')
+                            .slide
+                                img(src='./img/tower_pre.jpg' data-img='./img/tower.jpeg')
+                            .slide
+                                img(src='./img/mond_pre.jpg' data-img='./img/mond.jpg')
+                            .slide
+                                img(src='./img/palme_pre.jpg' data-img='./img/palme.jpg')
+                            .slide
+                                img(src='./img/see_pre.jpg' data-img='./img/see.jpg')
+                    button#sliderPrevious
+                        | <-
+                    button#sliderNext
+                        | ->
+
+        .footer
+    script(src='./script.js')
+    script(src='./slider.js')
