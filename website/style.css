@@ -1,12 +1,13 @@
 @charset "UTF-8";
 body {
   /* notwendig für lazyload */
+  /* --- */
   background-color: white;
   font-family: 'Open Sans', sans-serif; }
-  body img {
+  body img[data-img] {
     filter: blur(10px);
     transition: filter 1s; }
-    body img.loaded {
+    body img[data-img].loaded {
       filter: blur(0px); }
   body .background {
     z-index: -1;
