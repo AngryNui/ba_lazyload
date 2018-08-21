@@ -1,12 +1,15 @@
 body {
   /* notwendig für lazyload */
-  img {
+  img[data-img] {
     filter: blur(10px);
     transition: filter 1s;
     &.loaded{
       filter: blur(0px);
     }
   }
+
+  /* --- */
+
   background-color: white;
   font-family: 'Open Sans', sans-serif;
   .background {

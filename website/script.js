@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function(event){
-    init();
+    initLazyLoad();
 });
 
 
-function init() {
+function initLazyLoad() {
     var images;
     var currentX;
     var currentY;
@@ -15,7 +15,6 @@ function init() {
     images = Array.prototype.slice.call(document.querySelectorAll('[data-img]'));
     var mutationObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutations) {
-            console.log(mutations);
             mutations.target.addEventListener('load', function(){
                 mutations.target.className += ' loaded';
             });
@@ -47,9 +46,6 @@ function init() {
         var imageYStart = currentY+images[pos].getBoundingClientRect().top;
         var imageYEnd = currentY+images[pos].getBoundingClientRect().top+images[pos].getBoundingClientRect().height;
 
-        //console.log((currentY <= imageYStart), (currentY + currentH >= imageYStart), (currentY + currentH >= imageYEnd), (currentY <= imageYEnd));
-        //console.log(images[pos].getAttribute('data-img'), ': ', currentY, '<=', imageYStart, ' && ', currentY + currentH, '>=', imageYStart, ' || ', currentY, '>=', imageYEnd, ' && ', currentY, '<=', imageYEnd);
-
         var visible = false;
         if (((currentY-variance <= imageYStart) && (currentY+currentH+variance >= imageYStart)) || ((currentY + currentH + variance >= imageYEnd) && (currentY-variance <= imageYEnd))){ // Check Y-Vertikal in Viewport
             if(((currentX-variance <= imageYStart) && (currentX+currentW+variance >= imageXStart))  || ((currentX + currentW + variance >= imageYEnd) && (currentY-variance <= imageXEnd))){ // Check Y-Horizontal in Viewport
@@ -74,7 +70,6 @@ function init() {
         if (parentElement.tagName==='PICTURE'){
             mediaQueries = getMediaQueries(parentElement);
             mediaQueries.forEach(function(item,index){
-                //window.matchMedia(Array.prototype.slice.call(Array.prototype.slice.call(document.querySelectorAll('[data-img]'))[4].parentElement.querySelectorAll('source'))[0].getAttribute('media')).matches
                 if (window.matchMedia(item.getAttribute('media')).matches){
                     dataImg = item.getAttribute('srcset');
                     usedMediaQuerie = true;
@@ -83,9 +78,7 @@ function init() {
         }
 
         if  (src!=dataImg){
-            console.log(images[pos]);
             images[pos].setAttribute('src', dataImg);
-            console.log('BildNr: '+dataImg+' geladen!');
         }
     }
 
