@@ -16,8 +16,9 @@ function initLazyLoad() {
     var mutationObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutations) {
             if (mutations.target.tagName="IMG" && !mutations.target.className.includes('loaded')){
-                mutations.target.addEventListener('load', function(){
+                mutations.target.addEventListener('load', function(e){
                     mutations.target.className += ' loaded';
+                    e.target.removeEventListener(e.type, arguments.callee);
                 });
             }
             lazyLoad();
