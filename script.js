@@ -15,9 +15,11 @@ function initLazyLoad() {
     images = Array.prototype.slice.call(document.querySelectorAll('[data-img]'));
     var mutationObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutations) {
-            mutations.target.addEventListener('load', function(){
-                mutations.target.className += ' loaded';
-            });
+            if (mutations.target.tagName="IMG" && !mutations.target.className.includes('loaded')){
+                mutations.target.addEventListener('load', function(){
+                    mutations.target.className += ' loaded';
+                });
+            }
             lazyLoad();
         });
     });
@@ -55,11 +57,6 @@ function initLazyLoad() {
         return visible;
     }
 
-    function getMediaQueries(el){
-        var mediaQueries = Array.prototype.slice.call(el.querySelectorAll('source'));
-        return mediaQueries;
-    }
-
     function setSrc(pos){
         var src=images[pos].getAttribute('src');
         var dataImg=images[pos].getAttribute('data-img');
@@ -68,10 +65,10 @@ function initLazyLoad() {
         var usedMediaQuerie = false;
 
         if (parentElement.tagName==='PICTURE'){
-            mediaQueries = getMediaQueries(parentElement);
+            mediaQueries = Array.prototype.slice.call(parentElement.querySelectorAll('source'));
             mediaQueries.forEach(function(item,index){
                 if (window.matchMedia(item.getAttribute('media')).matches){
-                    dataImg = item.getAttribute('srcset');
+                    dataImg = item.getAttribute('data-img');
                     usedMediaQuerie = true;
                 }
             });
@@ -88,8 +85,8 @@ function initLazyLoad() {
             setTimeout( function(){
                 cd = false;
             }, 50);
+            getViewData();
             images.forEach(function (value, i) {
-                getViewData();
                 if (visibleInView(i)) {
                     setSrc(i);
                 }
